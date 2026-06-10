@@ -1,0 +1,452 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="CeH0U78ne6wBher-HRTB" name="Página-1">
+    <mxGraphModel dx="2184" dy="1195" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Persistivel" parent="1" style="swimlane;fontStyle=1;align=center;startSize=40;container=1;collapsible=0;fontSize=13;fillColor=none;" value="&lt;&lt;interface&gt;&gt;&#xa;Persistivel" vertex="1">
+          <mxGeometry height="130" width="190" x="30" y="322.5" as="geometry" />
+        </mxCell>
+        <mxCell id="Persistivel_m" parent="Persistivel" style="text;html=1;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;fillColor=none;" value="+ getId() : int&#xa;+ setId(int) : void" vertex="1">
+          <mxGeometry height="90" width="190" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DAOInterface" parent="1" style="swimlane;fontStyle=1;align=center;startSize=40;container=1;collapsible=0;fillColor=none;fontSize=13;" value="&lt;&lt;interface&gt;&gt;&#xa;DAO&lt;T&gt;" vertex="1">
+          <mxGeometry height="150" width="240" x="1100" y="452.5" as="geometry" />
+        </mxCell>
+        <mxCell id="DAOInterface_m" parent="DAOInterface" style="text;html=1;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ inserir(T) : void&#xa;+ atualizar(T) : void&#xa;+ excluir(int) : void&#xa;+ buscarPorId(int) : T&#xa;+ listarTodos() : List&lt;T&gt;" vertex="1">
+          <mxGeometry height="110" width="240" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="StatusEmprestimo" parent="1" style="swimlane;fontStyle=1;align=center;startSize=40;container=1;collapsible=0;fillColor=none;fontSize=13;" value="&lt;&lt;enumeration&gt;&gt;&#xa;StatusEmprestimo" vertex="1">
+          <mxGeometry height="130" width="220" x="1120" y="42.5" as="geometry" />
+        </mxCell>
+        <mxCell id="StatusEmprestimo_m" parent="StatusEmprestimo" style="text;html=1;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="ATIVO&#xa;DEVOLVIDO&#xa;ATRASADO" vertex="1">
+          <mxGeometry height="90" width="220" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PerfilUsuario" parent="1" style="swimlane;fontStyle=1;align=center;startSize=40;container=1;collapsible=0;fillColor=none;fontSize=13;" value="&lt;&lt;enumeration&gt;&gt;&#xa;PerfilUsuario" vertex="1">
+          <mxGeometry height="110" width="200" x="990" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="PerfilUsuario_m" parent="PerfilUsuario" style="text;html=1;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="ADMIN&#xa;ATENDENTE" vertex="1">
+          <mxGeometry height="70" width="200" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Categoria" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;container=1;collapsible=0;fillColor=none;fontSize=13;" value="Categoria" vertex="1">
+          <mxGeometry height="120" width="200" x="300" y="12.5" as="geometry" />
+        </mxCell>
+        <mxCell id="Categoria_m" parent="Categoria" style="text;html=1;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="- id : int&#xa;- nome : String&#xa;- descricao : String" vertex="1">
+          <mxGeometry height="90" width="200" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="e_mem_pers" edge="1" parent="Categoria" source="Membro" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;endSize=10;fillColor=none;" target="Persistivel">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="655" y="228" />
+              <mxPoint x="-185" y="228" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Autor" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;container=1;collapsible=0;fillColor=none;fontSize=13;" value="Autor" vertex="1">
+          <mxGeometry height="135" width="200" x="50" y="42.5" as="geometry" />
+        </mxCell>
+        <mxCell id="Autor_m" parent="Autor" style="text;html=1;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="- id : int&#xa;- nome : String&#xa;- email : String&#xa;- pais : String" vertex="1">
+          <mxGeometry height="105" width="200" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Livro" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;container=1;collapsible=0;fillColor=none;fontSize=13;" value="Livro" vertex="1">
+          <mxGeometry height="195" width="230" x="575" y="12.5" as="geometry" />
+        </mxCell>
+        <mxCell id="Livro_m" parent="Livro" style="text;html=1;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="- id : int&#xa;- titulo : String&#xa;- isbn : String&#xa;- anoPublicacao : int&#xa;- editora : String&#xa;- quantidade : int&#xa;- categoria : Categoria&#xa;- autores : List&lt;Autor&gt;&#xa;+ isDisponivel() : boolean" vertex="1">
+          <mxGeometry height="165" width="230" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Membro" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;container=1;collapsible=0;fillColor=none;fontSize=13;" value="Membro" vertex="1">
+          <mxGeometry height="195" width="210" x="850" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="Membro_m" parent="Membro" style="text;html=1;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="- id : int&#xa;- nome : String&#xa;- cpf : String&#xa;- email : String&#xa;- telefone : String&#xa;- endereco : String&#xa;- ativo : boolean" vertex="1">
+          <mxGeometry height="165" width="210" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Emprestimo" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;container=1;collapsible=0;fillColor=none;fontSize=13;" value="Emprestimo" vertex="1">
+          <mxGeometry height="195" width="250" x="360" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="Emprestimo_m" parent="Emprestimo" style="text;html=1;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="- id : int&#xa;- membro : Membro&#xa;- livro : Livro&#xa;- dataEmprestimo : LocalDate&#xa;- dataPrevista : LocalDate&#xa;- dataDevolucao : LocalDate&#xa;- status : StatusEmprestimo&#xa;+ estaAtrasado() : boolean" vertex="1">
+          <mxGeometry height="165" width="250" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UsuarioSistema" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;container=1;collapsible=0;fillColor=none;fontSize=13;" value="UsuarioSistema" vertex="1">
+          <mxGeometry height="150" width="210" x="730" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="UsuarioSistema_m" parent="UsuarioSistema" style="text;html=1;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="- id : int&#xa;- login : String&#xa;- senhaHash : String&#xa;- perfil : PerfilUsuario" vertex="1">
+          <mxGeometry height="120" width="210" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Conexao" parent="1" style="swimlane;fontStyle=1;align=center;startSize=40;container=1;collapsible=0;fillColor=none;fontSize=13;" value="&lt;&lt;utility&gt;&gt;&#xa;Conexao" vertex="1">
+          <mxGeometry height="130" width="230" x="1380" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="Conexao_m" parent="Conexao" style="text;html=1;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="- URL : String&#xa;- USUARIO : String&#xa;- SENHA : String&#xa;+ getConexao() : Connection&#xa;+ fechar(Connection) : void" vertex="1">
+          <mxGeometry height="90" width="230" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="LivroDAO" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;container=1;collapsible=0;fillColor=none;fontSize=13;" value="LivroDAO" vertex="1">
+          <mxGeometry height="150" width="220" x="50" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="LivroDAO_m" parent="LivroDAO" style="text;html=1;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ inserir(Livro) : void&#xa;+ atualizar(Livro) : void&#xa;+ excluir(int) : void&#xa;+ buscarPorId(int) : Livro&#xa;+ listarTodos() : List&lt;Livro&gt;&#xa;+ buscarPorTitulo(String) : List&lt;Livro&gt;" vertex="1">
+          <mxGeometry height="120" width="220" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MembroDAO" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;container=1;collapsible=0;fillColor=none;fontSize=13;" value="MembroDAO" vertex="1">
+          <mxGeometry height="140" width="220" x="330" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="MembroDAO_m" parent="MembroDAO" style="text;html=1;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ inserir(Membro) : void&#xa;+ atualizar(Membro) : void&#xa;+ excluir(int) : void&#xa;+ buscarPorId(int) : Membro&#xa;+ listarTodos() : List&lt;Membro&gt;" vertex="1">
+          <mxGeometry height="110" width="220" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EmprestimoDAO" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;container=1;collapsible=0;fillColor=none;fontSize=13;" value="EmprestimoDAO" vertex="1">
+          <mxGeometry height="160" width="250" x="650" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="EmprestimoDAO_m" parent="EmprestimoDAO" style="text;html=1;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;fillColor=none;" value="+ inserir(Emprestimo) : void&#xa;+ atualizar(Emprestimo) : void&#xa;+ excluir(int) : void&#xa;+ buscarPorId(int) : Emprestimo&#xa;+ listarTodos() : List&lt;Emprestimo&gt;&#xa;+ listarAtivos() : List&lt;Emprestimo&gt;&#xa;+ registrarDevolucao(int) : void" vertex="1">
+          <mxGeometry height="130" width="250" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CategoriaDAO" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;container=1;collapsible=0;fillColor=none;fontSize=13;" value="CategoriaDAO" vertex="1">
+          <mxGeometry height="140" width="220" x="980" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="CategoriaDAO_m" parent="CategoriaDAO" style="text;html=1;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;fillColor=none;" value="+ inserir(Categoria) : void&#xa;+ atualizar(Categoria) : void&#xa;+ excluir(int) : void&#xa;+ buscarPorId(int) : Categoria&#xa;+ listarTodos() : List&lt;Categoria&gt;" vertex="1">
+          <mxGeometry height="110" width="220" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UsuarioDAO" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;container=1;collapsible=0;fillColor=none;fontSize=13;" value="UsuarioDAO" vertex="1">
+          <mxGeometry height="150" width="220" x="1360" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="UsuarioDAO_m" parent="UsuarioDAO" style="text;html=1;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ autenticar(String, String) : UsuarioSistema&#xa;+ inserir(UsuarioSistema) : void&#xa;+ atualizar(UsuarioSistema) : void&#xa;+ excluir(int) : void&#xa;+ buscarPorId(int) : UsuarioSistema&#xa;+ listarTodos() : List&lt;UsuarioSistema&gt;" vertex="1">
+          <mxGeometry height="120" width="220" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TelaPrincipal" parent="1" style="swimlane;fontStyle=1;align=center;startSize=40;container=1;collapsible=0;fillColor=none;fontSize=13;" value="TelaPrincipal&#xa;(JFrame)" vertex="1">
+          <mxGeometry height="150" width="220" x="50" y="855" as="geometry" />
+        </mxCell>
+        <mxCell id="TelaPrincipal_m" parent="TelaPrincipal" style="text;html=1;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="- abas : JTabbedPane&#xa;+ configurarJanela() : void&#xa;+ construirMenu() : void&#xa;+ construirAbas() : void&#xa;+ main(String[]) : void" vertex="1">
+          <mxGeometry height="110" width="220" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="TelaLogin" parent="1" style="swimlane;fontStyle=1;align=center;startSize=40;container=1;collapsible=0;fillColor=none;fontSize=13;" value="TelaLogin&#xa;(JDialog)" vertex="1">
+          <mxGeometry height="140" width="210" x="320" y="855" as="geometry" />
+        </mxCell>
+        <mxCell id="TelaLogin_m" parent="TelaLogin" style="text;html=1;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="- txtLogin : JTextField&#xa;- txtSenha : JPasswordField&#xa;- btnEntrar : JButton&#xa;+ construirUI() : void&#xa;+ autenticar() : void" vertex="1">
+          <mxGeometry height="100" width="210" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="TelaLivro" parent="1" style="swimlane;fontStyle=1;align=center;startSize=40;container=1;collapsible=0;fillColor=none;fontSize=13;" value="TelaLivro&#xa;(JPanel)" vertex="1">
+          <mxGeometry height="150" width="220" x="580" y="855" as="geometry" />
+        </mxCell>
+        <mxCell id="TelaLivro_m" parent="TelaLivro" style="text;html=1;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="- tabela : JTable&#xa;- modelo : DefaultTableModel&#xa;- txtBusca : JTextField&#xa;+ carregarDados() : void&#xa;+ buscar() : void&#xa;+ abrirFormulario(Livro) : void" vertex="1">
+          <mxGeometry height="110" width="220" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="FormularioLivro" parent="1" style="swimlane;fontStyle=1;align=center;startSize=40;container=1;collapsible=0;fillColor=none;fontSize=13;" value="FormularioLivro&#xa;(JDialog)" vertex="1">
+          <mxGeometry height="150" width="220" x="1410" y="980" as="geometry" />
+        </mxCell>
+        <mxCell id="FormularioLivro_m" parent="FormularioLivro" style="text;html=1;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="- txtTitulo, txtIsbn : JTextField&#xa;- cbCategoria : JComboBox&#xa;+ preencherCampos() : void&#xa;+ salvar() : void&#xa;+ carregarCategorias() : void" vertex="1">
+          <mxGeometry height="110" width="220" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="TelaMembro" parent="1" style="swimlane;fontStyle=1;align=center;startSize=40;container=1;collapsible=0;fillColor=none;fontSize=13;" value="TelaMembro&#xa;(JPanel)" vertex="1">
+          <mxGeometry height="140" width="210" x="860" y="855" as="geometry" />
+        </mxCell>
+        <mxCell id="TelaMembro_m" parent="TelaMembro" style="text;html=1;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="- tabela : JTable&#xa;- modelo : DefaultTableModel&#xa;+ carregarDados() : void&#xa;+ abrirFormulario(Membro) : void" vertex="1">
+          <mxGeometry height="100" width="210" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="TelaEmprestimo" parent="1" style="swimlane;fontStyle=1;align=center;startSize=40;container=1;collapsible=0;fillColor=none;fontSize=13;" value="TelaEmprestimo&#xa;(JPanel)" vertex="1">
+          <mxGeometry height="155" width="230" x="1130" y="855" as="geometry" />
+        </mxCell>
+        <mxCell id="TelaEmprestimo_m" parent="TelaEmprestimo" style="text;html=1;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="- tabela : JTable&#xa;- modelo : DefaultTableModel&#xa;+ carregarDados() : void&#xa;+ novoEmprestimo() : void&#xa;+ registrarDevolucao() : void" vertex="1">
+          <mxGeometry height="115" width="230" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_cat_pers" edge="1" parent="1" source="Categoria" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;endSize=10;fillColor=none;" target="Persistivel">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="520" y="200" />
+              <mxPoint x="115" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_aut_pers" edge="1" parent="1" source="Autor" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;endSize=10;fillColor=none;" target="Persistivel">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="160" y="220" />
+              <mxPoint x="115" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_liv_pers" edge="1" parent="1" source="Livro" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;endSize=10;fillColor=none;" target="Persistivel">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="115" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_emp_pers" edge="1" parent="1" source="Emprestimo" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;endSize=10;fillColor=none;" target="Persistivel">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_usr_pers" edge="1" parent="1" source="UsuarioSistema" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;endSize=10;fillColor=none;" target="Persistivel">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="410" y="270" />
+              <mxPoint x="410" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_livdao_dao" edge="1" parent="1" source="LivroDAO" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;endSize=10;fillColor=none;" target="DAOInterface">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="160" y="810" />
+              <mxPoint x="1360" y="810" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_memdao_dao" edge="1" parent="1" source="MembroDAO" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;endSize=10;fillColor=none;" target="DAOInterface">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_empdao_dao" edge="1" parent="1" source="EmprestimoDAO" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;endSize=10;fillColor=none;" target="DAOInterface">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1360" y="800" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_catdao_dao" edge="1" parent="1" source="CategoriaDAO" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;endSize=10;fillColor=none;" target="DAOInterface">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1430" y="710" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_usrdao_dao" edge="1" parent="1" source="UsuarioDAO" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;endSize=10;fillColor=none;" target="DAOInterface">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_liv_cat" edge="1" parent="1" source="Livro" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;startArrow=ERmanyToOne;startFill=0;fillColor=none;" target="Categoria" value="0..1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_liv_aut" edge="1" parent="1" source="Livro" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;startArrow=ERmanyToOne;startFill=0;fillColor=none;" target="Autor" value="0..*">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="535" y="217" />
+              <mxPoint x="535" y="150" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_emp_mem" edge="1" parent="1" source="Emprestimo" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;dashed=1;fillColor=none;" target="Membro" value="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_emp_liv" edge="1" parent="1" source="Emprestimo" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;dashed=1;fillColor=none;" target="Livro" value="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_emp_status" edge="1" parent="1" source="Emprestimo" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;fontColor=light-dark(#9673A6,#FFFFFF);fontSize=10;fillColor=none;" target="StatusEmprestimo" value="«usa»">
+          <mxGeometry relative="1" x="-0.0703" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1230" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_usr_perfil" edge="1" parent="1" source="UsuarioSistema" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;fontColor=light-dark(#9673A6,#FFFFFF);fontSize=10;fillColor=none;" target="PerfilUsuario" value="«usa»">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1090" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_usrdao_usr" edge="1" parent="1" source="UsuarioDAO" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;fontColor=light-dark(#9673A6,#FFFFFF);fontSize=10;fillColor=none;" target="UsuarioSistema" value="«usa»">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_livdao_liv" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;fontColor=light-dark(#9673A6,#FFFFFF);fontSize=10;fillColor=none;" value="«usa»">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="100" y="812.5" />
+              <mxPoint x="630" y="812.5" />
+            </Array>
+            <mxPoint x="100.00000000000023" y="782.5" as="sourcePoint" />
+            <mxPoint x="630.0000000000002" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_memdao_mem" edge="1" parent="1" source="MembroDAO" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;fontColor=light-dark(#9673A6,#FFFFFF);fontSize=10;fillColor=none;" target="Membro" value="«usa»">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="460" y="570" />
+              <mxPoint x="955" y="570" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_empdao_emp" edge="1" parent="1" source="EmprestimoDAO" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;fontColor=light-dark(#9673A6,#FFFFFF);fontSize=10;fillColor=none;" target="Emprestimo" value="«usa»">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="580" y="720" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_catdao_cat" edge="1" parent="1" source="CategoriaDAO" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;fontColor=light-dark(#9673A6,#FFFFFF);fontSize=10;fillColor=none;" target="Categoria" value="«usa»">
+          <mxGeometry relative="1" x="0.0001" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1090" y="600" />
+              <mxPoint x="320" y="600" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_livdao_con" edge="1" parent="1" source="LivroDAO" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;fontColor=light-dark(#664400,#FFFFFF);fontSize=10;fillColor=none;" target="Conexao" value="«usa»">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="160" y="620" />
+              <mxPoint x="610" y="620" />
+              <mxPoint x="610" y="840" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_memdao_con" edge="1" parent="1" source="MembroDAO" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;fontColor=light-dark(#664400,#FFFFFF);fontSize=10;fillColor=none;" target="Conexao" value="«usa»">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="460" y="630" />
+              <mxPoint x="940" y="630" />
+              <mxPoint x="940" y="825" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_empdao_con" edge="1" parent="1" source="EmprestimoDAO" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;fontColor=light-dark(#664400,#FFFFFF);fontSize=10;fillColor=none;" target="Conexao" value="«usa»">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_catdao_con" edge="1" parent="1" source="CategoriaDAO" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;fontColor=light-dark(#664400,#FFFFFF);fontSize=10;fillColor=none;" target="Conexao" value="«usa»">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1290" y="710" />
+              <mxPoint x="1290" y="825" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_usrdao_con" edge="1" parent="1" source="UsuarioDAO" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;fontColor=light-dark(#664400,#FFFFFF);fontSize=10;fillColor=none;" target="Conexao" value="«usa»">
+          <mxGeometry relative="1" x="0.0009" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_telawiv_livdao" edge="1" parent="1" source="TelaLivro" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;fontColor=light-dark(#6F0000,#FFFFFF);fontSize=10;fillColor=none;" target="LivroDAO" value="«usa»">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="690" y="1080" />
+              <mxPoint x="20" y="1080" />
+              <mxPoint x="20" y="715" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_telamem_memdao" edge="1" parent="1" source="TelaMembro" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;fontColor=light-dark(#6F0000,#FFFFFF);fontSize=10;fillColor=none;" target="MembroDAO" value="«usa»">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="965" y="820" />
+              <mxPoint x="570" y="820" />
+              <mxPoint x="570" y="710" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_telaemp_empdao" edge="1" parent="1" source="TelaEmprestimo" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;fontColor=light-dark(#BA7517,#FFFFFF);fontSize=10;fillColor=none;" target="EmprestimoDAO" value="«usa»">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1245" y="830" />
+              <mxPoint x="775" y="830" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_login_usrdao" edge="1" parent="1" source="TelaLogin" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;fontColor=light-dark(#6F0000,#FFFFFF);fontSize=10;fillColor=none;" target="UsuarioDAO" value="«usa»">
+          <mxGeometry relative="1" x="-0.0001" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="425" y="1060" />
+              <mxPoint x="1370" y="1060" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_form_catdao" edge="1" parent="1" source="FormularioLivro" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;fontColor=light-dark(#6F0000,#FFFFFF);fontSize=10;fillColor=none;" target="CategoriaDAO" value="«usa»">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1090" y="1050" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_form_livdao" edge="1" parent="1" source="FormularioLivro" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;fontColor=light-dark(#6F0000,#FFFFFF);fontSize=10;fillColor=none;" target="LivroDAO" value="«usa»">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="20" y="1070" />
+              <mxPoint x="20" y="715" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_principal_livro" edge="1" parent="1" source="TelaPrincipal" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;fontColor=light-dark(#6F0000,#FFFFFF);fontSize=10;fillColor=none;" target="TelaLivro" value="contém">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="160" y="830" />
+              <mxPoint x="690" y="830" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_principal_membro" edge="1" parent="1" source="TelaPrincipal" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;fontColor=light-dark(#6F0000,#FFFFFF);fontSize=10;fillColor=none;" target="TelaMembro" value="contém">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="160" y="1030" />
+              <mxPoint x="965" y="1030" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_principal_emp" edge="1" parent="1" source="TelaPrincipal" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;fontColor=light-dark(#6F0000,#FFFFFF);fontSize=10;fillColor=none;" target="TelaEmprestimo" value="contém">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="160" y="1040" />
+              <mxPoint x="1245" y="1040" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_telawiv_form" edge="1" parent="1" source="TelaLivro" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;fontColor=light-dark(#6F0000,#FFFFFF);fontSize=10;fillColor=none;" target="FormularioLivro" value="abre">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="690" y="1020" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_login_principal" edge="1" parent="1" source="TelaLogin" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;fontColor=light-dark(#6F0000,#FFFFFF);fontSize=10;fillColor=none;" target="TelaPrincipal" value="abre">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="295" y="925" />
+              <mxPoint x="295" y="880" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg1_line" edge="1" parent="1" style="edgeStyle=none;dashed=1;endArrow=open;endFill=0;endSize=8;strokeColor=#3B6D11;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1376" y="898" />
+              <mxPoint x="1389" y="898" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg2_line" edge="1" parent="1" style="edgeStyle=none;dashed=1;endArrow=open;endFill=0;strokeColor=#6c8ebf;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1376" y="922" />
+              <mxPoint x="1389" y="922" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg3_line" edge="1" parent="1" style="edgeStyle=none;endArrow=open;endFill=0;startArrow=ERmanyToOne;startFill=0;strokeColor=#6c8ebf;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1376" y="946" />
+              <mxPoint x="1389" y="946" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg4_line" edge="1" parent="1" style="edgeStyle=none;dashed=1;endArrow=open;endFill=0;strokeColor=#BA7517;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1376" y="970" />
+              <mxPoint x="1389" y="970" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg5_line" edge="1" parent="1" style="edgeStyle=none;dashed=1;endArrow=open;endFill=0;strokeColor=#b85450;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1376" y="994" />
+              <mxPoint x="1389" y="994" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg6_line" edge="1" parent="1" style="edgeStyle=none;dashed=1;endArrow=open;endFill=0;strokeColor=#d6b656;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1376" y="1018" />
+              <mxPoint x="1389" y="1018" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
