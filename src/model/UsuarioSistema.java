@@ -4,23 +4,26 @@ public class UsuarioSistema implements Persistivel {
 
     private int id;
     private String login;
-    private String senhaHash;
     private PerfilUsuario perfil;
+    private String senha;
 
-    public UsuarioSistema() {}
+    public UsuarioSistema() {
+    }
 
-    public UsuarioSistema(int id, String login, String senhaHash, PerfilUsuario perfil) {
+    public UsuarioSistema(int id, String login, String senha, PerfilUsuario perfil) {
         this.id = id;
         this.login = login;
-        this.senhaHash = senhaHash;
+        this.senha = senha;
         this.perfil = perfil;
     }
 
-    @Override public int getId() {
+    @Override
+    public int getId() {
         return id;
     }
 
-    @Override public void setId(int id) {
+    @Override
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -28,23 +31,23 @@ public class UsuarioSistema implements Persistivel {
         return login;
     }
 
-    public void setLogin(String l) {
-        this.login = l;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
-    public String getSenhaHash() {
-        return senhaHash;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setSenhaHash(String s) {
-        this.senhaHash = s;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public PerfilUsuario getPerfil() {
         return perfil;
     }
 
-    public void setPerfil(PerfilUsuario p) {
-        this.perfil = p;
+    public void setPerfil(PerfilUsuario perfil) {
+        this.perfil = perfil;
     }
 }
