@@ -88,7 +88,7 @@ Romulo:
 ## GitHub
 - Repositório do projeto: `https://github.com/<equipe>/biblioteca-java`
 - Branch `main`: versão estável
-- Branch `membro1`, `membro2`, `membro3`: desenvolvimento individual
+- Branch `carlos`, `erik`, `romulo`: desenvolvimento individual
 
 ---
 
