@@ -30,8 +30,8 @@ INSERT INTO membro (nome, cpf, email, telefone, endereco) VALUES
   ('Carla Martins',   '333.444.555-66', 'carla@email.com',  '(47) 99000-0003', 'Rua 7 de Setembro, 50 - Blumenau');
 
 INSERT INTO usuario_sistema (login, senha, perfil) VALUES
-  ('admin',    SHA2('admin123', 256), 'ADMIN'),
-  ('atendente',SHA2('atend123', 256), 'ATENDENTE');
+  ('admin', 'teste', 'ADMIN'),
+  ('atendente','teste', 'ATENDENTE');
 
 INSERT INTO emprestimo (id_membro, id_livro, data_emprestimo, data_prevista, status) VALUES
   (1, 1, CURDATE() - INTERVAL 5 DAY, CURDATE() + INTERVAL 9 DAY,  'ATIVO'),

@@ -2,8 +2,6 @@ package dao;
 import model.PerfilUsuario;
 import model.UsuarioSistema;
 import util.Conexao;
-
-import java.security.MessageDigest;
 import java.sql.*;
 import java.util.*;
 
